@@ -29,3 +29,6 @@ A card may enter the recommendation engine only when all critical economics are 
 5. Run validation checks.
 6. Update progress and change log.
 7. Only verified cards enter recommendation calculations.
+
+## Demo deployment
+The launch MVP is deployed through GitHub Pages from `main` using the workflow in `.github/workflows/pages.yml`.
