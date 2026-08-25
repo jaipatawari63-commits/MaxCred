@@ -1,0 +1,7 @@
+Date,Workstream,Status,Progress,Notes,Blocker,Next Action
+2026-08-25,India-wide Card Master,In Progress,376-card universe established,Master schema and completeness tracking in place,Recommendation-grade fields incomplete,Prioritize high-impact launch subset
+2026-08-25,Axis current terms,In Progress,8 priority cards snapshot,Current terms separated from future changes,Some detailed reward fields pending,Complete remaining critical fields
+2026-08-25,Axis 28-Aug changes,In Progress,Change register created,Future terms must not overwrite current terms,Future detailed terms need extraction,Create date-effective future versions
+2026-08-25,Recommendation engine,Pending,Architecture defined,Must calculate net annual value with caps/exclusions/fees,Data layer not fully wired,Implement calculation engine
+2026-08-25,Free web demo,Pending,Prototype direction defined,Target flow spending -> current cards -> optimized 1-3 card wallet,Codebase setup pending,Build MVP after data layer
+2026-08-25,Master Progress Tracker,In Progress,Schema defined,Single launch-control page required,Needs app implementation,Build tracker UI
