@@ -1,0 +1,27 @@
+name: Wire MaxCred engine
+on:
+  push:
+    paths:
+      - 'scripts/inject_engine.py'
+      - 'data/demo-cards.js'
+      - 'app/maxcred-engine.js'
+      - 'app/index.html'
+permissions:
+  contents: write
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: python scripts/validate_demo_data.py
+      - run: python scripts/inject_engine.py
+      - name: Commit wiring
+        run: |
+          git config user.name 'MaxCred Bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/index.html
+          git diff --cached --quiet || git commit -m 'Connect MaxCred fee-aware demo engine'
+          git push
