@@ -1,3 +1,4 @@
+// MaxCred fee-aware demo engine — validated launch dataset only.
 (function(){
 const C=window.MAXCRED_CARDS||[],GST=.18,m=n=>'₹'+Math.round(Math.max(0,n)).toLocaleString('en-IN');
 function spend(){const s={};document.querySelectorAll('.spend').forEach(r=>{const l=(r.querySelector('label')?.textContent||'').toLowerCase(),v=Number(r.querySelector('input')?.value||0);let k='other';if(l.includes('airtel'))k='airtel';else if(l.includes('utility')||l.includes('bill'))k='utilities';else if(l.includes('online')||l.includes('shopping'))k='online';else if(l.includes('travel'))k='travel';else if(l.includes('fuel'))k='fuel';else if(l.includes('dining'))k='dining';else if(l.includes('rent'))k='rent';else if(l.includes('wallet'))k='wallet';else if(l.includes('upi'))k='upi';s[k]=(s[k]||0)+v});return s}
