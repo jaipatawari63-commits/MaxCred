@@ -28,5 +28,7 @@ function loadExample(){const vals={online:18000,dining:9000,travel:20000,grocery
 function optimize(){const spend=cats.reduce((s,[,k])=>s+(+el(k)?.value||0),0);if(!spend){loadExample();return optimize()}const current=spend*0.022*12;const gain=Math.round(Math.max(1800,Math.min(30000,spend*0.012*12*(selected.size?1:1.08))));el('current').textContent=money(current);el('gain').textContent='+'+money(gain);el('optimized').textContent=money(current+gain);el('results').classList.add('show');el('results').scrollIntoView({behavior:'smooth'})}
 render();updateTotal();
 </script>
+<script src="data/demo-cards.js"></script>
+<script src="app/maxcred-engine.js"></script>
 </body>
 </html>
