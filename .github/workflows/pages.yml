@@ -1,4 +1,4 @@
-name: MaxCred CI
+name: MaxCred Pages
 
 on:
   push:
@@ -7,6 +7,12 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   validate:
@@ -22,3 +28,28 @@ jobs:
           node --check app/maxcred-engine.js
       - name: Validate website entry point
         run: test -f app/index.html
+
+  deploy:
+    needs: validate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Prepare site
+        run: |
+          rm -rf dist
+          mkdir -p dist/data
+          cp app/index.html dist/index.html
+          cp data/demo-cards.js dist/data/demo-cards.js
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
