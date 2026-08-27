@@ -41,9 +41,19 @@ jobs:
       - name: Prepare site
         run: |
           rm -rf dist
-          mkdir -p dist/data
+          mkdir -p dist/data dist/app
           cp app/index.html dist/index.html
           cp data/demo-cards.js dist/data/demo-cards.js
+          cp app/maxcred-engine.js dist/app/maxcred-engine.js
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('dist/index.html')
+          s=p.read_text()
+          tag='<script src="app/maxcred-engine.js"></script>'
+          if tag not in s:
+              s=s.replace('</body>', tag+'\n</body>')
+          p.write_text(s)
+          PY
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
