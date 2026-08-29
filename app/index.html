@@ -17,7 +17,7 @@
 <footer class="footer">MaxCred · Make Every Spend Count.<br>Private beta demo. Card terms can change; official issuer sources remain the source of truth.</footer>
 <script src="data/demo-cards.js"></script>
 <script>
-const spendFields=['Online / shopping','Dining','Travel','Utilities / bills','Fuel','Airtel bills','UPI','Other'];
+const spendFields=['Online / shopping','Dining','Travel','Utilities / bills','Fuel','UPI','Other'];
 document.getElementById('cards').innerHTML=(window.MAXCRED_CARDS||[]).map(c=>`<button class="choice" type="button"><div class="cardtop"><span class="chip"></span><span class="network">${c.network}</span></div><strong>${c.name}</strong><small>${c.issuer} · verified ${c.verifiedDate}</small></button>`).join('');
 document.querySelectorAll('.choice').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('selected')));
 document.getElementById('spendings').innerHTML=spendFields.map(x=>`<div class="spend"><label>${x}</label><input type="number" min="0" step="500" value="0" inputmode="numeric"></div>`).join('');
