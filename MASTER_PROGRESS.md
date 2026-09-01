@@ -1,6 +1,6 @@
 # MaxCred — Master Progress Tracker
 
-_Last updated: 31 Aug 2026_
+_Last updated: 01 Sep 2026_
 
 ## Launch objective
 Ship a polished **2–3 day free web demo** for India-wide personalized credit-card optimization: users select current cards, enter approximate monthly spending, and receive a quantified 1–3 card optimized wallet with clear reasons and fee/waiver treatment.
@@ -16,7 +16,8 @@ Ship a polished **2–3 day free web demo** for India-wide personalized credit-c
 | Spending UX | 🟢 | Airtel-specific bill input removed; core categories retained | Mobile QA |
 | Results UX | 🟢 | Current vs optimized value, recommendations, best-for categories and fee treatment | Presentation polish |
 | Data verification | 🟡 | Recommendation-critical fields require official source + verification date | Continue issuer research |
-| India-wide expansion | 🟡 | Architecture and data principles established | Begin systematic issuer/card coverage |
+| Excel ↔ GitHub sync | 🟢 | Current 7-card demo dataset reconciled to the synchronized Excel master | Enforce sync on every future release |
+| India-wide expansion | 🟡 | 376-card master universe retained; systematic recommendation-ready coverage still pending | Begin priority issuer/card verification |
 | Master tracker | 🟢 | This single-page tracker is the source of launch status | Keep updated per release |
 
 ## Completed for the demo
@@ -26,6 +27,10 @@ Ship a polished **2–3 day free web demo** for India-wide personalized credit-c
 - Fee/waiver economics included in net annual value.
 - Airtel bill spending field removed from the user questionnaire.
 - Recommendation cards explain role, best-use categories, net annual value and effective fee status.
+- Current GitHub demo card records reconciled against the Excel master and a synchronized Excel deliverable created on 01 Sep 2026.
+
+## Database control rule
+**Excel master is the canonical source of truth.** No card-term change should be promoted to the GitHub recommendation dataset unless it is represented in the master and supported by the required official source/verification fields. A future release should be blocked when Excel and GitHub card records do not reconcile.
 
 ## Remaining launch blockers
 1. Final live end-to-end QA on the public Pages build.
