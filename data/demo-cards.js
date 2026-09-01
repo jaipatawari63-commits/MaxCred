@@ -75,3 +75,25 @@ window.MAXCRED_CARDS = [
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',enhance);else setTimeout(enhance,0);
 })();
+
+(function(){
+  function applyMaxCredBrand(){
+    var brand=document.querySelector('.brand');
+    if(brand){
+      brand.innerHTML='<img src="assets/maxcred-horizontal.webp" alt="MaxCred — Make Every Swipe Count" class="maxcred-horizontal-logo">';
+      brand.style.gap='0';
+    }
+    var mark=document.querySelector('.mark');
+    if(mark){
+      mark.innerHTML='<img src="assets/maxcred-app-icon.webp" alt="MaxCred" class="maxcred-app-logo">';
+    }
+    var head=document.head;
+    if(head && !document.getElementById('maxcred-favicon')){
+      var link=document.createElement('link'); link.id='maxcred-favicon'; link.rel='icon'; link.type='image/webp'; link.href='assets/maxcred-app-icon.webp'; head.appendChild(link);
+    }
+    var style=document.createElement('style');
+    style.textContent='.maxcred-horizontal-logo{display:block;width:190px;height:auto;max-height:58px;object-fit:contain}.maxcred-app-logo{width:100%;height:100%;object-fit:cover;border-radius:14px;display:block}.brand{min-width:190px}.mark{padding:0;background:#071a31}@media(max-width:800px){.maxcred-horizontal-logo{width:165px}.brand{min-width:165px}}';
+    document.head.appendChild(style);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',applyMaxCredBrand);else applyMaxCredBrand();
+})();
